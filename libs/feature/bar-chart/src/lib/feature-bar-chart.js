@@ -1,5 +1,12 @@
 import { useRef, useState, useEffect } from 'react';
-import { StyledFeatureBarChart, StyledSVG, StyledAxis } from './styles';
+import {
+  StyledFeatureBarChart,
+  StyledSVG,
+  StyledAxis,
+  StyledText,
+  StyledGroup,
+  StyledBar,
+} from './styles';
 import * as d3 from 'd3';
 
 const colors = d3.scaleOrdinal(d3.schemeCategory10);
@@ -11,14 +18,44 @@ const dimensions = {
   right: 40,
 };
 
-const generateData = (value) =>
-  d3.range(1, 12).map((item, index) => {
+const generateData = () =>
+  d3.range(1, 8).map((i) => {
     return {
-      index: index,
-      id: index + 1,
+      id: i,
       value: Math.round(Math.random() * 100),
     };
   });
+
+const Bar = ({ data, x, y, height }) => {
+  return (
+    <StyledGroup transform={`translate(${x(data.id)}, ${y(data.value)})`}>
+      <StyledBar
+        width={x.bandwidth()}
+        height={height - dimensions.bottom - dimensions.top - y(data.value)}
+        fill={colors(data.id)}
+      />
+      <StyledText transform={`translate(${x.bandwidth() / 2}, ${-4})`}>
+        {data.value}
+      </StyledText>
+    </StyledGroup>
+  );
+};
+
+export const XAxis = ({ scale, height }) => {
+  const axis = useRef(null);
+
+  useEffect(() => {
+    d3.select(axis.current).call(d3.axisBottom(scale));
+  });
+
+  return (
+    <StyledAxis
+      className="axis x"
+      ref={axis}
+      transform={`translate(${dimensions.left}, ${height - dimensions.bottom})`}
+    />
+  );
+};
 
 const YAxis = ({ scale }) => {
   const axis = useRef(null);
@@ -50,7 +87,8 @@ export const FeatureBarChart = () => {
     .scaleBand()
     .range([0, size.width - dimensions.left - dimensions.right])
     .domain(data.map((d) => d.id))
-    .padding(0.1);
+    .paddingInner(0.1)
+    .paddingOuter(0.05);
 
   const y = d3
     .scaleLinear()

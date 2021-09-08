@@ -8,7 +8,7 @@ export const StyledFeatureBarChart = styled.div`
 export const StyledBar = styled.rect``;
 export const StyledText = styled.text`
   text-anchor: middle;
-  font-size: 12px;
+  font-size: 1rem;
   fill: white;
 `;
 export const StyledSVG = styled.svg`
@@ -16,4 +16,7 @@ export const StyledSVG = styled.svg`
 `;
 export const StyledAxis = styled.g`
   color: white;
+  font-size: 1rem;
 `;
+
+export const StyledGroup = styled.g``;
