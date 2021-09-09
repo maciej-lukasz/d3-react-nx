@@ -18,11 +18,11 @@ const dimensions = {
   right: 40,
 };
 
-const generateData = () =>
-  d3.range(1, 8).map((i) => {
+const createData = (data) =>
+  data.map((d, i) => {
     return {
-      id: i,
-      value: Math.round(Math.random() * 100),
+      id: i + 1,
+      value: d,
     };
   });
 
@@ -75,7 +75,9 @@ const YAxis = ({ scale }) => {
 
 export const FeatureBarChart = () => {
   const innerRef = useRef(null);
-  const [data, setData] = useState(generateData());
+  const [data, setData] = useState(
+    createData([10, 40, 30, 20, 50, 10, 33, 78])
+  );
   const [size, setSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
