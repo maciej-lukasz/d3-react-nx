@@ -18,6 +18,9 @@
       "@d3graph/feature/bar-chart": ["libs/feature/bar-chart/src/index.js"],
       "@d3graph/feature/bar-chart-d3": [
         "libs/feature/bar-chart-d3/src/index.js"
+      ],
+      "@d3graph/feature/network-graph": [
+        "libs/feature/network-graph/src/index.js"
       ]
     },
     "checkJs": false

@@ -39,6 +39,9 @@
     },
     "feature-bar-chart-d3": {
       "tags": []
+    },
+    "feature-network-graph": {
+      "tags": []
     }
   }
 }

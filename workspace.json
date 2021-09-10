@@ -146,6 +146,21 @@
           }
         }
       }
+    },
+    "feature-network-graph": {
+      "root": "libs/feature/network-graph",
+      "sourceRoot": "libs/feature/network-graph/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature/network-graph/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
