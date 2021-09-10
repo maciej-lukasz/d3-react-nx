@@ -36,6 +36,9 @@
     },
     "feature-bar-chart": {
       "tags": []
+    },
+    "feature-bar-chart-d3": {
+      "tags": []
     }
   }
 }

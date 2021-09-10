@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@d3graph/feature/bar-chart": ["libs/feature/bar-chart/src/index.js"]
+      "@d3graph/feature/bar-chart": ["libs/feature/bar-chart/src/index.js"],
+      "@d3graph/feature/bar-chart-d3": [
+        "libs/feature/bar-chart-d3/src/index.js"
+      ]
     },
     "checkJs": false
   },
